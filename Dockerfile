@@ -1,6 +1,9 @@
-FROM ruby:3
+FROM ruby:3-slim
 
 RUN apt-get update -qq && apt-get install -y build-essential
+
+# for dev dependencies
+RUN apt-get install -y sqlite3 libsqlite3-dev
 
 # for a JS runtime
 RUN apt-get install -y nodejs
