@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rails-on-k8s-deployment
+  labels:
+    app: rails-on-k8s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rails-on-k8s
+  template:
+    metadata:
+      labels:
+        app: rails-on-k8s
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+        - name: rails-on-k8s
+          image: truvazia/rails_on_k8s:0.1-slim
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000

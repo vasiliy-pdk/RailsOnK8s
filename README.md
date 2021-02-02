@@ -7,6 +7,27 @@ something useful, TDD put out of the scope.
 
 Run server `$ ./bin/dev-server`
 
+### K8s with minikube
+
+Given profile name is `mn-cluster`
+
+Set Up: 
+
+```
+minikube start -p mn-cluster
+kubectl apply -f ./k8s/deployment.yml
+kubectl apply -f ./k8s/service.yml
+minikube -p mn-cluster service rails-on-k8s-service # to open in the browser
+```
+
+Tear Down:
+
+```
+kubectl delete -f ./k8s/service.yml
+kubectl delete -f ./k8s/deployment.yml
+minikube stop -p mn-cluster
+```
+
 ## Docker
 
 To build from local directory: `docker build .`
