@@ -1,0 +1,13 @@
+# Note: this could be specific to GKE https://cloud.google.com/kubernetes-engine/docs/how-to/exposing-apps#creating_a_service_of_type_loadbalancer
+apiVersion: v1
+kind: Service
+metadata:
+  name: rails-on-k8s-service-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: rails-on-k8s
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
