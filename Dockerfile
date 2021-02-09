@@ -2,6 +2,9 @@ FROM ruby:3-slim
 
 RUN apt-get update -qq && apt-get install -y build-essential
 
+# for postgres
+RUN apt-get install -y libpq-dev
+
 # for dev dependencies
 RUN apt-get install -y sqlite3 libsqlite3-dev
 

@@ -5,7 +5,22 @@ something useful, TDD put out of the scope.
 
 ## Development
 
-Run server `$ ./bin/dev-server`
+### Requirements
+
+* [Docker compose](https://docs.docker.com/compose/install/)
+
+### Setup
+
+Run `docker-compose build ; docker-compose up`
+Run in another terminal `docker-compose run web rake db:create`
+
+### Routine operations
+
+Start server `docker-compose up`.
+
+Stop server `docker-compose down`.
+
+Check for https://docs.docker.com/compose/rails/ for more details.
 
 ### K8s with minikube
 
