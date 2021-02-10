@@ -17,7 +17,24 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
         - name: rails-on-k8s
-          image: truvazia/rails_on_k8s:0.1-slim
+          image: truvazia/rails_on_k8s:0.2-slim
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
+          env:
+            - name: RAILS_ENV
+              value: production
+            - name: RAILSONK8S_DATABASE_NAME
+              value: railsonk8s
+            - name: RAILSONK8S_DATABASE_USERNAME
+              value: postgres
+            - name: RAILSONK8S_DATABASE_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: railsonk8s-db
+                  key: railsonk8s-database-host
+            - name: RAILSONK8S_DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: railsonk8s-db
+                  key: railsonk8s-database-password

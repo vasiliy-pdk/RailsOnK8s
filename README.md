@@ -30,8 +30,11 @@ Set Up:
 
 ```
 minikube start -p mn-cluster
-kubectl apply -f ./k8s/deployment.yml
+kubectl create secret generic railsonk8s-db \
+  --from-literal=railsonk8s-database-host=rails-on-k8s.cu5******.rds.amazonaws.com \
+  --from-literal=railsonk8s-database-password='********'
 kubectl apply -f ./k8s/service.yml
+kubectl apply -f ./k8s/deployment.yml
 minikube -p mn-cluster service rails-on-k8s-service # to open in the browser
 ```
 
