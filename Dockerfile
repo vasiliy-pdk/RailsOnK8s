@@ -9,7 +9,7 @@ RUN apt-get install -y libpq-dev
 RUN apt-get install -y sqlite3 libsqlite3-dev
 
 # for a JS runtime
-RUN apt-get install -y nodejs
+RUN apt-get install -y nodejs yarn
 
 ENV APP_HOME /RailsOnK8s
 RUN mkdir $APP_HOME

@@ -17,13 +17,15 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
         - name: rails-on-k8s
-          image: truvazia/rails_on_k8s:0.2-slim
+          image: truvazia/rails_on_k8s:0.2.1-slim
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
           env:
             - name: RAILS_ENV
               value: production
+            - name: RAILS_SERVE_STATIC_FILES
+              value: 'true'
             - name: RAILSONK8S_DATABASE_NAME
               value: railsonk8s
             - name: RAILSONK8S_DATABASE_USERNAME
